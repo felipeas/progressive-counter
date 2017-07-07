@@ -1,21 +1,20 @@
-export const INITIAL_STATE = 
-  {
+const getInitialState = () => {
+  return({
     name: 'player',
     life: 20
-  }
+  })
+}
 
-const counters = (state = INITIAL_STATE, action) => {
+const counters = (state = getInitialState(), action) => {
   switch (action.type) {
     case 'INCREMENT':
       console.log(state.life)
-      state.life += 1
-      return state
+      return {...state, life: state.life + 1}
     case 'DECREMENT':
-      state.life -= 1
-      return state
+      return {...state, life: state.life - 1}
     default:
       return state
   }
 }
 
-export default counters
+export {counters as default, getInitialState}

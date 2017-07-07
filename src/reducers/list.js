@@ -1,8 +1,8 @@
-import counterReducer,  { INITIAL_STATE as COUNTER_INITIAL_STATE } from './counters'
+import counterReducer, { getInitialState } from './counters'
 
 const INITIAL_STATE = [
-  COUNTER_INITIAL_STATE,
-  COUNTER_INITIAL_STATE,
+  getInitialState(),
+  getInitialState(),
 ]
 
 const list = (state = INITIAL_STATE, action) => {
@@ -11,7 +11,7 @@ const list = (state = INITIAL_STATE, action) => {
       case 'ADD_COUNTER':
         return [
           ...state,
-          COUNTER_INITIAL_STATE
+          getInitialState()
           ]
       case 'PERFORM':
         return [
