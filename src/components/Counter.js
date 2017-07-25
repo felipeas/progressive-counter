@@ -76,15 +76,6 @@ class Counter extends Component {
             </div>
           </div>
         </div>
-        <div className="hero-foot">
-          <div className="container">
-            <div className="tabs is-centered">
-              <ul>
-                <li><span>more info</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     )
   }

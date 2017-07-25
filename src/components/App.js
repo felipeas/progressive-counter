@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Counter from './Counter'
+import Ribbon from './Ribbon'
 import { connect } from 'react-redux'
 
 import {
@@ -13,6 +14,7 @@ export class App extends Component {
 
     return (
       <div className="container is-fullheight is-fullwidth">
+        <Ribbon/>
         {counters.map( (counter, index) =>(
           <Counter
             key={index}
@@ -25,7 +27,6 @@ export class App extends Component {
             onDecrement={() => this.props.decrement(index)}
           />
         ))}
-        
       </div>
     )
   }
