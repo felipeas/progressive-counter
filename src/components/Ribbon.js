@@ -25,28 +25,28 @@ class Ribbon extends Component {
       <div className="hero is-primary">
         <div className="hero-body has-text-centered">
           <div className="field">
-          <p className="control">
-          <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-            <span className="icon is-medium">
-              <i className={`fa fa-close`}></i>
-            </span>
-          </a>
-          </p>
-          <p className="control">
-          <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-            <span className="icon is-medium">
-              <i className={`fa fa-close`}></i>
-            </span>
-          </a>
-          </p>
-          <p className="control">
-          <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-            <span className="icon is-medium">
-              <i className={`fa fa-close`}></i>
-            </span>
-          </a>
-          </p>
-</div>
+            <p className="control">
+              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+                <span className="icon is-medium">
+                  <i className={`fa fa-close`}></i>
+                </span>
+              </a>
+            </p>
+            <p className="control">
+              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+                <span className="icon is-medium">
+                  <i className={`fa fa-close`}></i>
+                </span>
+              </a>
+            </p>
+            <p className="control">
+              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+                <span className="icon is-medium">
+                  <i className={`fa fa-close`}></i>
+                </span>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     )
@@ -75,4 +75,4 @@ class Ribbon extends Component {
   }
 }
 
-export default Ribbon;
+export default Ribbon

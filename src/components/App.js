@@ -21,7 +21,7 @@ export class App extends Component {
             name={counter.name}
             life={counter.life}
             color={index === 1 ? 'black' : 'white'}
-            position={index === 1 ? 'top' : 'bottom'}
+            position={index === 0 ? 'top' : 'bottom'}
             size="half"
             onIncrement={() => this.props.increment(index)}
             onDecrement={() => this.props.decrement(index)}
@@ -34,12 +34,12 @@ export class App extends Component {
 
 const mapStateToProps = (state) => ({  
   counters: state.list,
-});
+})
 
 const mapDispatchToProps = {  
   increment,
   decrement,
-};
+}
 
 const AppContainer = connect(  
   mapStateToProps,

@@ -19,7 +19,7 @@ class Counter extends Component {
     position: PropTypes.string.isRequired,
     onIncrement: PropTypes.func.isRequired,
     onDecrement: PropTypes.func.isRequired
-  };
+  }
  
   //TODO: A lot refactor to fit 4 counters
   // parse colors to not us
@@ -81,4 +81,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default Counter
