@@ -1,10 +1,12 @@
 {
   "name": "react-lifecounter-paw",
   "version": "0.1.0",
+  "homepage": "https://felipeas.github.io/react-lifecounter-pwa",
   "private": true,
   "dependencies": {
     "bulma": "^0.4.3",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^1.0.0",
     "glamor": "^2.20.25",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
@@ -16,6 +18,8 @@
     "react-scripts": "1.0.6"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
