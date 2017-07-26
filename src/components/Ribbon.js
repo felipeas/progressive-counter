@@ -22,32 +22,31 @@ class Ribbon extends Component {
 
   renderBar() {
     return (
-      <div className="hero is-primary">
-        <div className="hero-body has-text-centered">
-          <div className="field">
-            <p className="control">
-              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-                <span className="icon is-medium">
-                  <i className={`fa fa-close`}></i>
-                </span>
-              </a>
-            </p>
-            <p className="control">
-              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-                <span className="icon is-medium">
-                  <i className={`fa fa-close`}></i>
-                </span>
-              </a>
-            </p>
-            <p className="control">
-              <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
-                <span className="icon is-medium">
-                  <i className={`fa fa-close`}></i>
-                </span>
-              </a>
-            </p>
-          </div>
-        </div>
+      <div className="container is-primary has-text-centered">
+      <div className="field is-grouped is-grouped-centered ">
+        <p className="control">
+            <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+              <span className="icon is-medium">
+                <i className={`fa fa-refresh`}></i>
+              </span>
+            </a>
+          </p>
+          <p className="control">
+            <a className="button is-medium is-danger is-inverted" onClick={() => this.toggleEdit()}>
+              <span className="icon is-medium">
+                <i className={`fa fa-close`}></i>
+              </span>
+            </a>
+         </p>
+          <p className="control">
+            <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+              <span className="icon is-medium">
+                <i className={`fa fa-tasks`}></i>
+              </span>
+            </a>
+             </p>
+         
+      </div>
       </div>
     )
   }

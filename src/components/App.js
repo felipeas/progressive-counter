@@ -13,20 +13,22 @@ export class App extends Component {
     const { counters } = this.props
 
     return (
-      <div className="container is-fullheight is-fullwidth">
+      <div>
         <Ribbon/>
-        {counters.map( (counter, index) =>(
-          <Counter
-            key={index}
-            name={counter.name}
-            life={counter.life}
-            color={index === 1 ? 'black' : 'white'}
-            position={index === 0 ? 'top' : 'bottom'}
-            size="half"
-            onIncrement={() => this.props.increment(index)}
-            onDecrement={() => this.props.decrement(index)}
-          />
-        ))}
+        <div className="container is-fullheight is-fullwidth">
+          {counters.map( (counter, index) =>(
+            <Counter
+              key={index}
+              name={counter.name}
+              life={counter.life}
+              color={index === 1 ? 'black' : 'white'}
+              position={index === 0 ? 'top' : 'bottom'}
+              size="half"
+              onIncrement={() => this.props.increment(index)}
+              onDecrement={() => this.props.decrement(index)}
+            />
+          ))}
+        </div>
       </div>
     )
   }
