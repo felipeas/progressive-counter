@@ -23,8 +23,8 @@ class Ribbon extends Component {
   renderBar() {
     return (
       <div className="container is-primary has-text-centered">
-      <div className="field is-grouped is-grouped-centered ">
-        <p className="control">
+        <div className="field is-grouped is-grouped-centered ">
+          <p className="control">
             <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
               <span className="icon is-medium">
                 <i className={`fa fa-refresh`}></i>
@@ -37,16 +37,15 @@ class Ribbon extends Component {
                 <i className={`fa fa-close`}></i>
               </span>
             </a>
-         </p>
+          </p>
           <p className="control">
             <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
               <span className="icon is-medium">
                 <i className={`fa fa-tasks`}></i>
               </span>
             </a>
-             </p>
-         
-      </div>
+          </p>
+        </div>
       </div>
     )
   }
