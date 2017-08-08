@@ -6,15 +6,18 @@ import { connect } from 'react-redux'
 import {
   increment,
   decrement,
+  reset
 } from '../actions'
 
 export class App extends Component {
   render() {
-    const { counters } = this.props
+    const { counters, increment, decrement, reset } = this.props
 
     return (
       <div>
-        <Ribbon/>
+        <Ribbon
+          reset={() => reset}
+        />
         <div className="container is-fullheight is-fullwidth">
           {counters.map( (counter, index) =>(
             <Counter
@@ -24,8 +27,8 @@ export class App extends Component {
               color={index === 1 ? 'black' : 'white'}
               position={index === 0 ? 'top' : 'bottom'}
               size="half"
-              onIncrement={() => this.props.increment(index)}
-              onDecrement={() => this.props.decrement(index)}
+              onIncrement={() => increment(index)}
+              onDecrement={() => decrement(index)}
             />
           ))}
         </div>
@@ -41,6 +44,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {  
   increment,
   decrement,
+  reset
 }
 
 const AppContainer = connect(  

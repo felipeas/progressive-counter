@@ -19,6 +19,8 @@ const list = (state = INITIAL_STATE, action) => {
           counterReducer(state[index], innerAction),
           ...state.slice(index + 1)
         ]
+      case 'RESET':
+        return INITIAL_STATE
       default:
         return state
   }

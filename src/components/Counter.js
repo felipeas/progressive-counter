@@ -21,10 +21,10 @@ class Counter extends Component {
     onDecrement: PropTypes.func.isRequired
   }
  
-  //TODO: A lot refactor to fit 4 counters
+  // TODO: A lot refactor to fit 4 counters
   // parse colors to not us
   render() {
-    const { name, life, color, size, position } =  this.props
+    const { name, life, color, size, position } = this.props
 
     const getPosition = () => {
       return position === 'top' ? top : bottom

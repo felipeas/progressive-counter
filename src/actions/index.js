@@ -11,3 +11,7 @@ export const decrement = (index) => ({
     type: 'DECREMENT'
   },
 })
+
+export const reset = () => ({
+  type: 'RESET'
+})

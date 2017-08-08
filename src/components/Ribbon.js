@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'glamor'
 
 let absolutCenter = css({
@@ -10,6 +11,10 @@ let absolutCenter = css({
 })
 
 class Ribbon extends Component {
+  static propTypes = {
+    reset: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props)
     this.state = { open: false }
@@ -25,7 +30,7 @@ class Ribbon extends Component {
       <div className="container is-primary has-text-centered">
         <div className="field is-grouped is-grouped-centered ">
           <p className="control">
-            <a className="button is-medium is-primary is-inverted" onClick={() => this.toggleEdit()}>
+            <a className="button is-medium is-primary is-inverted" onClick={this.props.reset()}>
               <span className="icon is-medium">
                 <i className={`fa fa-refresh`}></i>
               </span>
