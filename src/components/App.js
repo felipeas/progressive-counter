@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import {
   increment,
   decrement,
-  reset
+  reset,
+  set
 } from '../actions'
 
 export class App extends Component {
@@ -38,13 +39,14 @@ export class App extends Component {
 }
 
 const mapStateToProps = (state) => ({  
-  counters: state.list,
+  counters: state.app.items,
 })
 
 const mapDispatchToProps = {  
   increment,
   decrement,
-  reset
+  reset,
+  set
 }
 
 const AppContainer = connect(  

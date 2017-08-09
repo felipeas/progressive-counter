@@ -17,18 +17,26 @@ class Ribbon extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { open: false }
+    this.state = { 
+      isBarOpen: false,
+      isModalOpen: false
+    }
+  }
+
+  toggleBar() {
+    const { isBarOpen } = this.state
+    this.setState({ isBarOpen: !isBarOpen })
   }
 
   toggleEdit() {
-    const { open } = this.state
-    this.setState({ open: !open })
+    const { isModalOpen } = this.state
+    this.setState({ isModalOpen: !isModalOpen })
   }
 
   renderBar() {
     return (
       <div className="container is-primary has-text-centered">
-        <div className="field is-grouped is-grouped-centered ">
+        <div className="field is-grouped is-grouped-centered">
           <p className="control">
             <a className="button is-medium is-primary is-inverted" onClick={this.props.reset()}>
               <span className="icon is-medium">
@@ -37,7 +45,7 @@ class Ribbon extends Component {
             </a>
           </p>
           <p className="control">
-            <a className="button is-medium is-danger is-inverted" onClick={() => this.toggleEdit()}>
+            <a className="button is-medium is-danger is-inverted" onClick={() => this.toggleBar()}>
               <span className="icon is-medium">
                 <i className={`fa fa-close`}></i>
               </span>
@@ -57,8 +65,8 @@ class Ribbon extends Component {
 
   renderMiddleButton() {
     return (
-      <div className="container has-text-centered">
-        <a className="button is-medium is-primary" onClick={() => this.toggleEdit()}>
+      <div className="container has-text-centered is-grouped-centered ">
+        <a className="button is-medium is-primary" onClick={() => this.toggleBar()}>
           <span className="icon is-medium">
             <i className={`fa fa-bars`}></i>
           </span>
@@ -67,12 +75,29 @@ class Ribbon extends Component {
     )
   }
 
+  renderLifeInputModal() {
+    return (
+      <div className="container is-primary has-text-centered">
+        <div className="field is-grouped is-grouped-centered">
+          <p className="control">
+            <input className="input" type="number" placeholder="Starting"/>
+          </p>
+          <p className="control">
+            <a className="button is-info" onClick={() => this.toggleEdit()}>
+              Ok
+            </a>
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   render() {
-    const { open } = this.state
+    const { isBarOpen, isModalOpen } = this.state
 
     return (
       <div className={absolutCenter}>
-        {open ? this.renderBar() : this.renderMiddleButton()}
+        {isModalOpen ? this.renderLifeInputModal() : isBarOpen ? this.renderBar() : this.renderMiddleButton() }
       </div>
     )
   }

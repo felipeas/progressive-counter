@@ -12,6 +12,11 @@ export const decrement = (index) => ({
   },
 })
 
+export const set = (value) => ({
+  value,
+  type: 'SET'
+})
+
 export const reset = () => ({
   type: 'RESET'
 })

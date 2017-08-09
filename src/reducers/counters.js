@@ -1,14 +1,13 @@
-const getInitialState = () => {
+const getInitialState = (start) => {
   return({
     name: 'player',
-    life: 20
+    life: start
   })
 }
 
 const counters = (state = getInitialState(), action) => {
   switch (action.type) {
     case 'INCREMENT':
-      console.log(state.life)
       return {...state, life: state.life + 1}
     case 'DECREMENT':
       return {...state, life: state.life - 1}
