@@ -12,15 +12,17 @@ import {
 
 export class App extends Component {
   render() {
-    const { counters, increment, decrement, reset } = this.props
+    const { counters, increment, decrement, reset, set, life } = this.props
 
     return (
       <div>
         <Ribbon
           reset={() => reset}
+          set={set}
+          life={life}
         />
         <div className="container is-fullheight is-fullwidth">
-          {counters.map( (counter, index) =>(
+          {counters.map((counter, index) => (
             <Counter
               key={index}
               name={counter.name}
@@ -40,6 +42,7 @@ export class App extends Component {
 
 const mapStateToProps = (state) => ({  
   counters: state.app.items,
+  life: state.app.life
 })
 
 const mapDispatchToProps = {  

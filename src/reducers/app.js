@@ -1,15 +1,18 @@
 import counterReducer, { getInitialState } from './counters'
 
-const INITIAL_STATE = {
-  life: 20,
+const DEFAULT_LIFE = 20
+const radix = 10
+
+const getInitialAppState = (life) => ({
+  life: parseInt(life, radix),
   items:
   [
-    getInitialState(20),
-    getInitialState(20),
+    getInitialState(parseInt(life, radix)),
+    getInitialState(parseInt(life, radix)),
   ]
-}
+})
 
-const list = (state = INITIAL_STATE, action) => {
+const list = (state = getInitialAppState(DEFAULT_LIFE), action) => {
     const { index, value, action: innerAction } = action
     switch (action.type) {
       case 'ADD_COUNTER':
@@ -24,9 +27,9 @@ const list = (state = INITIAL_STATE, action) => {
           ...state.items.slice(index + 1)
         ]}
       case 'SET':
-        return {...state.life, value}
+        return getInitialAppState(value)
       case 'RESET':
-        return INITIAL_STATE
+        return getInitialAppState(state.life)
       default:
         return state
   }

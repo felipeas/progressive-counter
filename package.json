@@ -8,6 +8,7 @@
     "font-awesome": "^4.7.0",
     "gh-pages": "^1.0.0",
     "glamor": "^2.20.25",
+    "nosleep.js": "^0.7.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

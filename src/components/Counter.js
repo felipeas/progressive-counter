@@ -51,15 +51,6 @@ class Counter extends Component {
     
     return(
       <div className={`hero is-${getBulmaHeroColor(color)} is-${size}height ${getPosition(position)}`}>
-        <div className="hero-head">
-          <div className="container">
-            <div className="tabs is-centered">
-              <ul>
-                <li><span>{name}</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div className="hero-body is-unselectable">
           <div className="container has-text-centered"> 
             <div className="column">
@@ -73,6 +64,15 @@ class Counter extends Component {
                 </span>
               </h3>
               <h4 className="subtitle is-5">info</h4>
+            </div>
+          </div>
+        </div>
+        <div className="hero-bottom">
+          <div className="container">
+            <div className="tabs is-centered">
+              <ul>
+                <li><span>{name}</span></li>
+              </ul>
             </div>
           </div>
         </div>
