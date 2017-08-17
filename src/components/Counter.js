@@ -63,16 +63,6 @@ class Counter extends Component {
                   <i className="fa fa-plus"></i>
                 </span>
               </h3>
-              <h4 className="subtitle is-5">info</h4>
-            </div>
-          </div>
-        </div>
-        <div className="hero-bottom">
-          <div className="container">
-            <div className="tabs is-centered">
-              <ul>
-                <li><span>{name}</span></li>
-              </ul>
             </div>
           </div>
         </div>

@@ -49,7 +49,6 @@ class Ribbon extends Component {
   }
 
   handleSetLife = () => {
-  debugger
     this.props.set(this.state.life)
     this.handleToggleEdit()
     this.handleToggleBar()
@@ -57,10 +56,10 @@ class Ribbon extends Component {
 
   renderBar() {
     return (
-      <div className="container is-primary has-text-centered">
+      <div className="container is-info has-text-centered">
         <div className="field is-grouped is-grouped-centered">
           <p className="control">
-            <a className="button is-medium is-primary is-inverted" onClick={this.props.reset()}>
+            <a className="button is-medium is-info is-inverted" onClick={this.props.reset()}>
               <span className="icon is-medium">
                 <i className={`fa fa-refresh`}></i>
               </span>
@@ -74,7 +73,7 @@ class Ribbon extends Component {
             </a>
           </p>
           <p className="control">
-            <a className="button is-medium is-primary is-inverted" onClick={() => this.handleToggleEdit()}>
+            <a className="button is-medium is-info is-inverted" onClick={() => this.handleToggleEdit()}>
               <span className="icon is-medium">
                 <i className={`fa fa-tasks`}></i>
               </span>
@@ -88,7 +87,7 @@ class Ribbon extends Component {
   renderMiddleButton() {
     return (
       <div className="container has-text-centered is-grouped-centered ">
-        <a className="button is-medium is-primary" onClick={() => this.handleToggleBar()}>
+        <a className="button is-medium is-info" onClick={() => this.handleToggleBar()}>
           <span className="icon is-medium">
             <i className={`fa fa-bars`}></i>
           </span>
@@ -96,16 +95,20 @@ class Ribbon extends Component {
       </div>
     )
   }
+  
   // TODO: handle submit
   renderLifeInputModal() {
     const life = this.state.life
 
     return (
-      <div className="container is-primary has-text-centered">
+      <form 
+        onSubmit={() => this.handleSetLife()}
+        className="container is-info has-text-centered"
+      >
         <div className="field is-grouped is-grouped-centered">
           <p className="control">
             <input 
-              className="input" 
+              className="input is-medium" 
               type="number" 
               placeholder="42" 
               value={life}
@@ -113,14 +116,14 @@ class Ribbon extends Component {
             />
           </p>
           <p className="control">
-            <a className="button is-info" onClick={() => this.handleSetLife()}>
-              <span className="icon">
-                <i className={`fa fa-rebel`}></i>
+            <a className="button is-info is-medium" onClick={() => this.handleSetLife()}>
+              <span className="icon is-medium">
+                <i className={`fa fa-save`}></i>
               </span>
             </a>
           </p>
         </div>
-      </div>
+      </form>
     )
   }
 

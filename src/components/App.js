@@ -13,7 +13,8 @@ import {
 export class App extends Component {
   render() {
     const { counters, increment, decrement, reset, set, life } = this.props
-
+    // TODO: criar um web-service que sincroniza contadores, atraves do server.
+    // sleep de 30 minutos sem ninguem mexer nos totais. dropa o jogo
     return (
       <div>
         <Ribbon
