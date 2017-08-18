@@ -110,7 +110,6 @@ class Ribbon extends Component {
             <input 
               className="input is-medium" 
               type="number" 
-              placeholder="42" 
               value={life}
               onChange={this.handleChangeLife}
             />
@@ -118,7 +117,7 @@ class Ribbon extends Component {
           <p className="control">
             <a className="button is-info is-medium" onClick={() => this.handleSetLife()}>
               <span className="icon is-medium">
-                <i className={`fa fa-save`}></i>
+                <i className={`fa fa-magic`}></i>
               </span>
             </a>
           </p>
