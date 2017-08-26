@@ -1,5 +1,7 @@
 ## lifecounter
 
-A simple life counter to mtg games
+http://felipeas.github.io/progressive-counter
 
-using create-react-app and bulma
+A simple progressive web app lifecounter for mtg games
+
+made with create-react-app and bulma
