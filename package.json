@@ -1,7 +1,7 @@
 {
   "name": "react-lifecounter-paw",
   "version": "0.1.0",
-  "homepage": "https://felipeas.github.io/react-lifecounter-pwa",
+  "homepage": "https://felipeas.github.io/progressive-counter",
   "private": true,
   "dependencies": {
     "bulma": "^0.4.3",
