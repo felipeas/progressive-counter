@@ -1,140 +1,157 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { css } from 'glamor'
-import NoSleep from 'nosleep.js/dist/NoSleep.min.js'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { css } from 'glamor';
+import NoSleep from 'nosleep.js/dist/NoSleep.min.js';
 
 let absolutCenter = css({
-    position: 'fixed',
-    zIndex: '999',
-    width: '100%',
-    transform: 'translate(0px, -50%)',
-    top: '50%'
-})
+  position: 'fixed',
+  zIndex: '999',
+  width: '100%',
+  transform: 'translate(0px, -50%)',
+  top: '50%'
+});
 
 class Ribbon extends Component {
   static propTypes = {
     reset: PropTypes.func.isRequired,
     set: PropTypes.func.isRequired,
     life: PropTypes.number.isRequired
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isBarOpen: false,
       isModalOpen: false,
       life: props.life
-    }
+    };
   }
 
   enableNoSleep() {
-    const ns = new NoSleep()
-    ns.enable()
+    const ns = new NoSleep();
+    ns.enable();
   }
 
   handleToggleBar() {
-    const { isBarOpen } = this.state
+    const { isBarOpen } = this.state;
 
-    this.setState({ isBarOpen: !isBarOpen })
-    this.enableNoSleep()
+    this.setState({ isBarOpen: !isBarOpen });
+    this.enableNoSleep();
   }
 
   handleToggleEdit() {
-    const { isModalOpen } = this.state
-    this.setState({ isModalOpen: !isModalOpen })
+    const { isModalOpen } = this.state;
+    this.setState({ isModalOpen: !isModalOpen });
   }
 
   handleChangeLife = e => {
-    this.setState({ life: e.target.value })
-  }
+    this.setState({ life: e.target.value });
+  };
 
   handleSetLife = () => {
-    this.props.set(this.state.life)
-    this.handleToggleEdit()
-    this.handleToggleBar()
-  }
+    this.props.set(this.state.life);
+    this.handleToggleEdit();
+    this.handleToggleBar();
+  };
 
   renderBar() {
     return (
       <div className="container is-info has-text-centered">
         <div className="field is-grouped is-grouped-centered">
           <p className="control">
-            <a className="button is-medium is-info is-inverted" onClick={this.props.reset()}>
+            <a
+              className="button is-medium is-info is-inverted"
+              onClick={this.props.reset()}
+            >
               <span className="icon is-medium">
-                <i className={`fa fa-refresh`}></i>
+                <i className={`fa fa-refresh`} />
               </span>
             </a>
           </p>
           <p className="control">
-            <a className="button is-medium is-danger is-inverted" onClick={() => this.handleToggleBar()}>
+            <a
+              className="button is-medium is-danger is-inverted"
+              onClick={() => this.handleToggleBar()}
+            >
               <span className="icon is-medium">
-                <i className={`fa fa-close`}></i>
+                <i className={`fa fa-close`} />
               </span>
             </a>
           </p>
           <p className="control">
-            <a className="button is-medium is-info is-inverted" onClick={() => this.handleToggleEdit()}>
+            <a
+              className="button is-medium is-info is-inverted"
+              onClick={() => this.handleToggleEdit()}
+            >
               <span className="icon is-medium">
-                <i className={`fa fa-tasks`}></i>
+                <i className={`fa fa-tasks`} />
               </span>
             </a>
           </p>
         </div>
       </div>
-    )
+    );
   }
 
   renderMiddleButton() {
     return (
       <div className="container has-text-centered is-grouped-centered ">
-        <a className="button is-medium is-info" onClick={() => this.handleToggleBar()}>
+        <a
+          className="button is-medium is-info"
+          onClick={() => this.handleToggleBar()}
+        >
           <span className="icon is-medium">
-            <i className={`fa fa-bars`}></i>
+            <i className={`fa fa-bars`} />
           </span>
         </a>
       </div>
-    )
+    );
   }
-  
+
   // TODO: handle submit
   renderLifeInputModal() {
-    const life = this.state.life
+    const life = this.state.life;
 
     return (
-      <form 
+      <form
         onSubmit={() => this.handleSetLife()}
         className="container is-info has-text-centered"
       >
         <div className="field is-grouped is-grouped-centered">
           <p className="control">
-            <input 
-              className="input is-medium" 
-              type="number" 
+            <input
+              className="input is-medium"
+              type="number"
               value={life}
               onChange={this.handleChangeLife}
             />
           </p>
           <p className="control">
-            <a className="button is-info is-medium" onClick={() => this.handleSetLife()}>
+            <a
+              className="button is-info is-medium"
+              onClick={() => this.handleSetLife()}
+            >
               <span className="icon is-medium">
-                <i className={`fa fa-magic`}></i>
+                <i className={`fa fa-magic`} />
               </span>
             </a>
           </p>
         </div>
       </form>
-    )
+    );
   }
 
   render() {
-    const { isBarOpen, isModalOpen } = this.state
+    const { isBarOpen, isModalOpen } = this.state;
 
     return (
       <div className={absolutCenter}>
-        {isModalOpen ? this.renderLifeInputModal() : isBarOpen ? this.renderBar() : this.renderMiddleButton() }
+        {isModalOpen
+          ? this.renderLifeInputModal()
+          : isBarOpen ? this.renderBar() : this.renderMiddleButton()}
       </div>
-    )
+    );
   }
 }
 
-export default Ribbon
+export default Ribbon;
