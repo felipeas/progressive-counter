@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { css } from 'glamor';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { css } from 'glamor'
 
 let top = css({
-  transform: 'rotate(180deg)'
-});
+  transform: 'rotate(180deg)',
+})
 
 let bottom = css({
-  transform: 'rotate(360deg)' /*couldnt keep the joke out */
-});
+  transform: 'rotate(360deg)' /*couldnt keep the joke out */,
+})
 
 class Counter extends Component {
   static propTypes = {
@@ -18,41 +18,41 @@ class Counter extends Component {
     size: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     onIncrement: PropTypes.func.isRequired,
-    onDecrement: PropTypes.func.isRequired
-  };
+    onDecrement: PropTypes.func.isRequired,
+  }
 
   // TODO: A lot refactor to fit 4 counters
   // parse colors to not us
   render() {
-    const { name, life, color, size, position } = this.props;
+    const { name, life, color, size, position } = this.props
 
     const getPosition = () => {
-      return position === 'top' ? top : bottom;
-    };
+      return position === 'top' ? top : bottom
+    }
 
     const getBulmaHeroColor = () => {
       switch (color) {
         case 'green':
-          return 'success';
+          return 'success'
         case 'black':
-          return 'dark';
+          return 'dark'
         case 'white':
-          return 'light';
+          return 'light'
         case 'yellow':
-          return 'warning';
+          return 'warning'
         case 'blue':
-          return 'info';
+          return 'info'
         case 'red':
-          return 'danger';
+          return 'danger'
         default:
-          return 'primary';
+          return 'primary'
       }
-    };
+    }
 
     return (
       <div
         className={`hero is-${getBulmaHeroColor(
-          color
+          color,
         )} is-${size}height ${getPosition(position)}`}
       >
         <div className="hero-body is-unselectable">
@@ -77,8 +77,8 @@ class Counter extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Counter;
+export default Counter
