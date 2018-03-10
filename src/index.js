@@ -8,9 +8,11 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import lifeCounter from './reducers'
 
-const bufferedState = localStorage.getItem('prog-counters') ? {
+const counters = localStorage.getItem('prog-counters')
+
+const bufferedState = counters ? {
   app: {
-    items: JSON.parse(localStorage.getItem('prog-counters')),
+    items: JSON.parse(counters),
     life: localStorage.getItem('prog-life')
   }
 } : null;
