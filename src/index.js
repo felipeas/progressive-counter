@@ -8,8 +8,21 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import lifeCounter from './reducers'
 
-const store = createStore(lifeCounter)
-console.log(store.getState())
+const bufferedState = localStorage.getItem('prog-counters') ? {
+  app: {
+    items: JSON.parse(localStorage.getItem('prog-counters')),
+    life: localStorage.getItem('prog-life')
+  }
+} : null;
+
+const store = bufferedState ? createStore(lifeCounter, bufferedState) : createStore(lifeCounter)
+
+const storage = () => {
+  const { items, life } = store.getState().app;
+
+  localStorage.setItem('prog-counters', JSON.stringify(items));
+  localStorage.setItem('prog-life', life);
+}
 
 const render = () =>
   ReactDOM.render(
@@ -18,8 +31,11 @@ const render = () =>
     </Provider>,
     document.getElementById('root'),
   )
-
 render()
+
 store.subscribe(render)
+store.subscribe(storage);
+
+console.log(store.getState())
 
 registerServiceWorker()
