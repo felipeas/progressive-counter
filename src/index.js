@@ -15,15 +15,15 @@ const bufferedState = counters ? {
     items: JSON.parse(counters),
     life: localStorage.getItem('prog-life')
   }
-} : null;
+} : null
 
 const store = bufferedState ? createStore(lifeCounter, bufferedState) : createStore(lifeCounter)
 
 const storage = () => {
-  const { items, life } = store.getState().app;
+  const { items, life } = store.getState().app
 
-  localStorage.setItem('prog-counters', JSON.stringify(items));
-  localStorage.setItem('prog-life', life);
+  localStorage.setItem('prog-counters', JSON.stringify(items))
+  localStorage.setItem('prog-life', life)
 }
 
 const render = () =>
@@ -36,7 +36,7 @@ const render = () =>
 render()
 
 store.subscribe(render)
-store.subscribe(storage);
+store.subscribe(storage)
 
 console.log(store.getState())
 
